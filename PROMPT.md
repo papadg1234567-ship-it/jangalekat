@@ -139,11 +139,12 @@ dessous et casse les quiz associés. **Toute insertion se fait en fin de chapitr
 
 ### 7.2 Fichiers de questions et validation
 
-- Sous `js/quiz/`, **53 fichiers**, un par classe ou par groupe de classes, nom réel du fichier =
+- Sous `js/quiz/`, **54 fichiers**, un par classe ou par groupe de classes, nom réel du fichier =
   portée : `geo-6e.js`, `geo-5e-1.js` … `geo-5e-4.js`, `geo-4e-1.js` et `geo-4e-2.js`, `geo-3e.js`,
   `geo-seconde-1/2.js`, `geo-premiere-1/2.js`, `geo-terminale-1/2.js`, puis les mêmes découpages pour
   `maths-`, `pc-` et `svt-` (`maths-6e-1.js`, `maths-seconde-2.js`, `pc-premiere-1.js`,
-  `svt-terminale-2.js` …) et, depuis la version 0.9, sept fichiers d'histoire (`histoire-6e.js` …
+  `svt-terminale-2.js` …), le fichier complémentaire `pc-complements.js`, et, depuis la version 0.9,
+  sept fichiers d'histoire (`histoire-6e.js` …
   `histoire-terminale.js`). S'y ajoutent les trois fichiers hérités de la phase 1 : `herites.js`
   (55 questions), `sciences-maths-pc.js` (26) et `sciences-svt-histoire.js` (10), soit **91 questions**
   rédigées avant le découpage, chacune rangée sous sa leçon ou sa fiche d'origine.
@@ -181,7 +182,7 @@ sélecteur de classe affiche aussi le nombre total de quiz rédigés et l'averti
 
 Sans équilibrage, un élève peut réussir en cochant toujours la même case. Répartition cible : aucune
 case au-dessus de 45 % par fichier. Contrôlée par `node verifier-quiz.js` (actuellement
-26,0 % / 26,6 % / 24,8 % / 22,7 % sur les 1668 questions, soit 434 / 443 / 413 / 378).
+26,0 % / 26,5 % / 24,8 % / 22,8 % sur les 1776 questions, soit 461 / 470 / 440 / 405).
 
 Méthode de correction : **rotation circulaire** des `options` + ajustement de `correct`
 (`newCorrect = (correct - r) mod n`). Les textes ne changent pas, donc un ordre logique
@@ -268,11 +269,12 @@ Cinq registres déclarés dans `js/programmes/`, chacun avec son statut de prove
   (second cycle), 120 leçons.
 - **Mathématiques — `programme_officiel`**, sauf la 5ᵉ en `fascicule_pedagogique` : APAMS octobre 2006
   et *Guide d'usage des programmes* (DEMSG, septembre 2012, premier cycle seulement), 135 leçons.
-- **Physique-Chimie — `fascicule_pedagogique`** : copies dactylographiées d'août 2008 sans autorité
-  imprimée (UNESCO `unesdoc`), 95 leçons. **Le registre ne couvre que 4ᵉ → Terminale** : aucun document
- obtenu ne donne les leçons de 6ᵉ et de 5ᵉ, et l'absence est écrite dans le fichier. Recoupement du
- 20/10/2026 : le dépôt institutionnel SENPROF publie des fascicules ADEM de physique-chimie pour 4ᵉ et
- 3ᵉ seulement, alors qu'il publie maths, SVT et français de 6ᵉ à 3ᵉ.
+- **Physique-Chimie — `fascicule_pedagogique`** : 95 chapitres principaux issus de copies
+  dactylographiées d'août 2008 sans autorité imprimée (UNESCO `unesdoc`), de 4ᵉ à Terminale. Le
+  registre ajoute 36 compléments de révision rédigés par Jàngalekat : 8 leçons de découverte en 6ᵉ,
+  8 en 5ᵉ et 4 dans chacune des classes de 4ᵉ à Terminale. Aucun document consulté ne donne une liste
+  vérifiable pour la 6ᵉ ou la 5ᵉ ; les compléments ne sont donc ni attribués au programme ni présentés
+  comme officiels. Les nouveaux titres sont explicitement séparés des chapitres relevés.
 
 **Histoire — `sans_source`, 56 repères.** Le découpage chronologique par classe, le nombre de leçons et
 les volumes horaires (22 leçons et 37 h en 6ᵉ, 22 et 37 h en 5ᵉ, 24 et 48 h en 4ᵉ, 22 et 43 h en 3ᵉ,
@@ -289,17 +291,17 @@ Ventilation réelle, mesurée par `verifier-quiz.js` le 20 octobre 2026 (une le�
 
 | Classe | Géo | Histoire | Maths | PC | SVT | Leçons | Questions |
 |---|---|---|---|---|---|---|---|
-| 6ᵉ | 14 | 8 | 19 | — | 12 | 53 | 159 |
-| 5ᵉ | 26 | 8 | 12 | — | 12 | 58 | 174 |
-| 4ᵉ | 22 | 8 | 14 | 12 | 13 | 69 | 207 |
-| 3ᵉ | 10 | 8 | 13 | 11 | 15 | 57 | 171 |
-| Seconde | 20 | 8 | 27 | 25 | 10 | 90 | 270 |
-| Première | 23 | 8 | 41 | 23 | 28 | 123 | 369 |
-| Terminale | 18 | 8 | 9 | 24 | 30 | 89 | 267 |
-| **Total** | **133** | **56** | **135** | **95** | **120** | **539** | **1617** |
+| 6ᵉ | 14 | 8 | 19 | 8 | 12 | 61 | 183 |
+| 5ᵉ | 26 | 8 | 12 | 8 | 12 | 66 | 198 |
+| 4ᵉ | 22 | 8 | 14 | 16 | 13 | 73 | 219 |
+| 3ᵉ | 10 | 8 | 13 | 15 | 15 | 61 | 183 |
+| Seconde | 20 | 8 | 27 | 29 | 10 | 94 | 282 |
+| Première | 23 | 8 | 41 | 27 | 28 | 127 | 381 |
+| Terminale | 18 | 8 | 9 | 28 | 30 | 93 | 279 |
+| **Total** | **133** | **56** | **135** | **131** | **120** | **575** | **1725** |
 
-S'y ajoutent 17 supports de fiche hors registre (51 questions), d'où **556 supports et 1668 questions**.
-Le vide de la colonne PC en 6ᵉ et 5ᵉ est une absence de source, pas un oubli de rédaction.
+S'y ajoutent 17 supports de fiche hors registre (51 questions), d'où **592 supports et 1776 questions**.
+Les contenus PC de 6ᵉ et de 5ᵉ sont des compléments Jàngalekat et non une liste de programme vérifiée.
 
 Si un chiffre de ce tableau ne correspond plus aux données, corriger le tableau **avant** de lancer
 un agent : les identifiants de leçon en dépendent.
@@ -352,7 +354,7 @@ par le titre de leçon et par la fiche, comme dans le programme.
         ├── quiz.js         écran Quiz (exercices.html)
         ├── planning.js     écran Planificateur (profil.html)
         ├── landing.js      compteurs de l'accueil
-        └── quiz/           53 fichiers de questions (nommés comme en §7.2)
+        └── quiz/           54 fichiers de questions (nommés comme en §7.2)
 
 `js/fiches.js` contient à la fois les données et l'écran : ne pas créer `ecran-fiches.js`, ce fichier
 n'existe pas.
@@ -379,10 +381,10 @@ vers `exercices.html`. Un nouveau fichier `js/quiz/…` doit être déclaré dan
 
 ## 11. Chiffres de contrôle (mesurés le 20 octobre 2026)
 
-539 leçons dans 5 registres (Géo 133 · Histoire 56 · Maths 135 · PC 95 · SVT 120), **toutes dotées d'un
-quiz**, plus 17 supports de fiche hors registre : **556 supports, 1668 questions**, exactement 3 par
-support, 53 fichiers dans `js/quiz/`. Détail par classe en §9.2. Position de la bonne réponse :
-26,0 % / 26,6 % / 24,8 % / 22,7 % (434 / 443 / 413 / 378).
+575 leçons dans 5 registres (Géo 133 · Histoire 56 · Maths 135 · PC 131 · SVT 120), **toutes dotées d'un
+quiz**, plus 17 supports de fiche hors registre : **592 supports, 1776 questions**, exactement 3 par
+support, 54 fichiers dans `js/quiz/`. Détail par classe en §9.2. Position de la bonne réponse :
+26,0 % / 26,5 % / 24,8 % / 22,8 % (461 / 470 / 440 / 405).
 
 Toute question ajoutée ou retirée doit être répercutée ici, dans `README.md` et au §13 du
 `CAHIER_DES_CHARGES.md`, après un nouveau passage de `verifier-quiz.js` (les compteurs de l'accueil,
@@ -390,7 +392,7 @@ eux, sont lus dans les données et ne se corrigent pas à la main).
 
 ### 11.1 Intervalle de caractères autorisés dans les données
 
-Relevé réel sur les données, mesuré le 20 octobre 2026 (53 fichiers de quiz, 53 fiches, 5 registres) :
+Relevé réel sur les données, mesuré le 21 octobre 2026 (54 fichiers de quiz, 53 fiches, 5 registres) :
 **103 signes non ASCII
 distincts**, tous justifiés par le français, le wolof ou les notations scientifiques. La liste est
 donnée par intervalles Unicode (bornes incluses),
@@ -424,7 +426,7 @@ Deux précisions qui évitent les faux négatifs :
 
 ## 12. Vérifications exigées avant livraison
 
-1. `node verifier-quiz.js` à la racine : charge les 53 fichiers, sort code 0, et vérifie
+1. `node verifier-quiz.js` à la racine : charge les 54 fichiers, sort code 0, et vérifie
    identifiants au format attendu, énoncés non vides, ≥ 2 options, options non vides et non doublonnées,
    index dans les bornes, explication ≥ 20 caractères, absence de doublon d'énoncé dans une leçon,
    **caractères limités à la liste du §11.1**, pas d'apostrophe droite ni d'antislash, parité des balises
@@ -500,13 +502,14 @@ Un contenu auto-rédigé ne doit **jamais** passer pour officiel ou sourcé.
 
 ## 16. Reste à faire — à ne pas présenter comme terminé
 
-- Relecture des 53 fiches et des 1668 questions par un enseignant (aucune ne l'a été).
+- Relecture des 53 fiches et des 1776 questions par un enseignant (aucune ne l'a été).
 - Alignement des fiches SVT sur les programmes officiels 2008 (enseignement moyen) et 2015 (second
   cycle), repérés le 18 octobre 2026 mais non encore travaillés leçon par leçon.
 - Fiches d'histoire pour Seconde / Première / Terminale (aucune), et confirmation par un professeur des
   56 repères du registre d'histoire avant de le passer en « programme officiel ».
-- Listes officielles toujours introuvables : physique-chimie de 6ᵉ et 5ᵉ, anglais, technologie, SES et
-  éducation civique. Mathématiques et SVT sont désormais couverts par leurs documents institutionnels.
+- Listes officielles toujours introuvables : physique-chimie de 6ᵉ et 5ᵉ (compléments de découverte
+  Jàngalekat non officiels), anglais, technologie, SES et éducation civique. Mathématiques et SVT sont
+  désormais couverts par leurs documents institutionnels.
 - Test avec 5 à 10 élèves, en classe réelle, sur téléphone.
 - Manifeste PWA et service worker (hors phase 1 : ils exigent un serveur HTTPS).
 - Publication en HTTPS après validation — **et** décision explicite sur la perte de la progression,

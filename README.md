@@ -87,13 +87,12 @@ mal formée (énoncé vide, moins de deux options, index hors tableau).
 
 Conséquences pratiques : aucune question ne se mélange entre deux leçons ni entre deux classes ;
 une leçon sans questions affiche « Quiz en cours de rédaction » au lieu d'un quiz inventé ; la note
-d'un quiz ne remplace pas les autres, elle est stockée sous son identifiant de leçon. Le message
-reste la règle pour toute leçon ajoutée plus tard : à ce jour les 556 supports ont tous leurs trois
-questions, donc aucun ne l'affiche.
+d'un quiz ne remplace pas les autres, elle est stockée sous son identifiant de leçon. Les 592 supports
+ont actuellement chacun leurs trois questions.
 
-État du corpus (20 octobre 2026, mesuré par `verifier-quiz.js`) : **les 539 leçons des cinq
-registres** — Géographie 133, Histoire 56, Mathématiques 135, Physique-Chimie 95, SVT 120 — ont un quiz,
-à quoi s'ajoutent 17 quiz de fiches qui tiennent lieu de leçon : **556 supports, 1668 questions,
+État du corpus (21 octobre 2026, mesuré par `verifier-quiz.js`) : **les 575 leçons des cinq
+registres** — Géographie 133, Histoire 56, Mathématiques 135, Physique-Chimie 131, SVT 120 — ont un quiz,
+à quoi s'ajoutent 17 quiz de fiches qui tiennent lieu de leçon : **592 supports, 1776 questions,
 exactement trois par support**. Les trois fichiers hérités de la phase 1 (`herites.js`,
 `sciences-maths-pc.js`, `sciences-svt-histoire.js`) portent les **91 questions** rédigées avant ce
 découpage, chacune rangée sous la leçon ou la fiche qu'elle évalue ; les fichiers par classe (`geo-6e.js`,
@@ -106,11 +105,11 @@ signale pour chaque leçon d'un registre (les 17 supports de fiche hors registre
 même comptage du registre, cf. §13 du cahier des charges).
 
 Contrôle à faire après chaque ajout de questions : `node verifier-quiz.js`, à la racine du projet. Ce
-script charge les 53 fichiers de questions et vérifie les identifiants, la forme des questions, les
+script charge les 54 fichiers de questions et vérifie les identifiants, la forme des questions, les
 doublons d'énoncé dans une leçon, la présence de la balise `<script>` de chaque fichier dans
 `exercices.html` et `index.html`, et la **position** de la bonne réponse. Il sort 0 s'il n'a rien à
-signaler (actuellement 556 supports, 1668 questions, positions réparties 26,0 % / 26,6 % / 24,8 % /
-22,7 %).
+signaler (actuellement 592 supports, 1776 questions, positions réparties 26,0 % / 26,5 % / 24,8 % /
+22,8 %).
 
 La position de la bonne réponse doit rester partagée entre les quatre cases : si un fichier met trop
 souvent la bonne réponse en premier, l'élève peut réussir sans réviser. On corrige en faisant tourner
@@ -156,22 +155,26 @@ plus de « À revoir ». Rien n'est calculé automatiquement : c'est l'élève q
 | Matière | 6ᵉ | 5ᵉ | 4ᵉ | 3ᵉ | Seconde | Première | Terminale |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mathématiques | Divisibilité | Relatifs | Fractions | Pythagore | Ensembles de nombres | Dérivation, suites | Second degré, trigo, probas |
-| Physique-Chimie | États de la matière | Masse volumique | Circuits électriques | Combustion | Structure de l'atome | — | Radioactivité |
+| Physique-Chimie | 8 leçons de découverte Jàngalekat | 8 leçons de découverte Jàngalekat | Programme relevé + 4 compléments | Programme relevé + 4 compléments | Programme relevé + 4 compléments | Programme relevé + 4 compléments | Programme relevé + 4 compléments |
 | SVT | La cellule | Photosynthèse | Reproduction des plantes | Hérédité | Constituants du vivant | — | — |
 | Histoire (HG) | Premières civilisations | Islam et empires d'Afrique de l'Ouest | Traite négrière et abolitions | Colonisation et indépendance | — | — | — |
 | Géographie (HG) | Milieu proche et six régions géographiques + fiche méthode | Sénégal : physique, humains, économies, synthèse | Afrique de l'Ouest, Afrique, Europe, Amérique, Asie et Océanie | Terre-planète, ressources et climat, inégalités, solidarité | Géographie physique : Terre et océans, climats, reliefs, régions naturelles | Population mondiale, milieu rural, milieu urbain, échanges et intégration | Système-monde et Amérique du Nord, Europe, Asie-Pacifique, Amérique latine, Afrique, Sénégal |
 
 Les cinq matières déclarées ont **toutes** leurs leçons dotées d'un quiz : Géographie 133/133,
-Histoire 56/56, Mathématiques 135/135, Physique-Chimie 95/95, SVT 120/120. L'Histoire n'est pas une
+Histoire 56/56, Mathématiques 135/135, Physique-Chimie 131/131, SVT 120/120. L'Histoire n'est pas une
 copie d'un arrêté : aucun document officiel accessible ne publie ses listes d'intitulés, et le registre
 affiche en clair « aucune source officielle jointe : liste de démonstration » sous ses 56 repères. Le
-registre de physique-chimie ne couvre que 4ᵉ → Terminale : aucun document
-obtenu ne donne la liste des leçons de 6ᵉ et de 5ᵉ pour cette matière.
+registre de physique-chimie reprend les chapitres retrouvés de 4ᵉ à Terminale, complétés par des
+parcours de révision Jàngalekat dans chacune de ces classes. Les 6ᵉ et 5ᵉ disposent maintenant de
+huit leçons de découverte chacune, explicitement signalées comme compléments non officiels : aucun
+document consulté ne donne une liste vérifiable des leçons de ces deux niveaux.
 
-Chiffres du corpus, mesurés par `node verifier-quiz.js` le 20 octobre 2026 : **539 leçons**
-au programme (Géo 133 · Histoire 56 · Maths 135 · PC 95 · SVT 120), **toutes couvertes**, plus 17 quiz
-de fiches hors registre, soit **556 supports / 1668 questions**, trois par support. Répartition
-des bonnes réponses par case : 434 / 443 / 413 / 378 (maximum 26,6 %, plafond du règlement 45 %).
+Chiffres du corpus, mesurés par `node verifier-quiz.js` le 21 octobre 2026 : **575 leçons**
+dans les registres (Géo 133 · Histoire 56 · Maths 135 · PC 131 · SVT 120), **toutes couvertes**, plus 17 quiz
+de fiches hors registre, soit **592 supports / 1776 questions**, trois par support. En physique-chimie,
+les leçons sont réparties ainsi : 6ᵉ 8 · 5ᵉ 8 · 4ᵉ 16 · 3ᵉ 15 · Seconde 29 · Première 27 · Terminale 28.
+Les nouveaux contenus sont auto-rédigés, hors liste de programme vérifiée, et à faire valider par un enseignant.
+Répartition des bonnes réponses par case : 461 / 470 / 440 / 405 (maximum 26,6 %, plafond du règlement 45 %).
 
 Les questions déposées sous un identifiant de fiche (`fiche-*`) ne sont plus acceptées quand cette
 fiche est référencée par une leçon du registre : le quiz devenait inatteignable. Les groupes
@@ -299,7 +302,7 @@ leçons du registre sont donc des **repères rédigés par Jàngalekat** dans l'
 sont des contenus de démonstration auto-rédigés à partir des intitulés du programme et des fiches.
 Aucune n'a été relue par un enseignant, aucune n'est un sujet d'examen. L'avertissement est dans
 l'en-tête de chaque fichier de quiz et sur l'écran de choix des leçons. Les 53 fiches et les
-1668 questions ne doivent pas être présentées comme un cours officiellement validé.
+1776 questions ne doivent pas être présentées comme un cours officiellement validé.
 
 **La cible bouge.** Le rapport PURGES / AUF décrit la réforme PARC (redéfinition du milieu proche,
 problématisation des leçons, allègement du nombre de leçons) et une révision curriculaire 2026-2028 :
@@ -312,8 +315,8 @@ support ici. Ce qui est protégé, et comment (détail et commandes de re-vérif
 `CAHIER_DES_CHARGES.md`, §13) :
 
 - **0 occurrence** de `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write` ou `eval` dans
-  les 73 fichiers du périmètre P1 — ce que le navigateur charge : 4 pages, `css/style.css`,
-  `assets/icons/`, 9 modules de `js/`, 5 registres, 53 fichiers de quiz (périmètres P1/P2/P3 :
+  les 74 fichiers du périmètre P1 — ce que le navigateur charge : 4 pages, `css/style.css`,
+  `assets/icons/`, 9 modules de `js/`, 5 registres, 54 fichiers de quiz (périmètres P1/P2/P3 :
   `CAHIER_DES_CHARGES.md`, annexe A), re-mesuré le 20 octobre 2026 ; tout le DOM est construit par `h()`
   et tout le texte passe par `textContent` ;
 - les quatre pages déclarent une politique de sécurité de contenu : aucun script en ligne, pas
@@ -350,9 +353,11 @@ change d'appareil ou change de navigateur.
 
 Toutes les leçons des cinq registres déclarés ont désormais leurs trois questions : il ne reste
 aucune leçon en attente de quiz. L'Education civique, l'Anglais, la Technologie et les SES n'ont pas de
-registre, la physique-chimie de 6ᵉ et de 5ᵉ n'a pas de liste de leçons sourcée, et les 56 repères
-d'histoire restent une progression interne tant qu'un professeur ou un texte officiel ne les a pas
-confirmés.
+registre. En physique-chimie, les parcours de 6ᵉ et 5ᵉ sont des compléments de découverte rédigés par
+Jàngalekat, faute de liste de leçons sourcée ; les compléments des autres classes sont également hors
+du relevé documentaire. Aucun de ces ajouts n'est présenté comme un contenu officiel ou validé par un
+enseignant. Les 56 repères d'histoire restent une progression interne tant qu'un professeur ou un
+texte officiel ne les a pas confirmés.
 
 ## Étapes suivantes (voir `CAHIER_DES_CHARGES.md`, §16)
 
