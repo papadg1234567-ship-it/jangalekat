@@ -110,7 +110,7 @@
     host.append(
       h('h1', { text: 'Quiz par leçon' }),
       h('p', { class: 'lede', text: 'Une leçon = un quiz. Choisissez d’abord la classe : les questions d’une leçon ne se mélangent jamais à celles d’une autre, ni à celles d’une autre classe.' }),
-      h('p', { class: 'alert alert-warn', text: nb + ' leçons disposent d’un quiz rédigé. Les intitulés de leçons viennent des programmes quand ils existent ; les questions, elles, sont auto-rédigées d’après ces intitulés et les fiches de Jàngalekat : aucune n’a été relue par un enseignant. Servez-vous-en pour vous entraîner, pas comme d’un sujet officiel. Une leçon sans quiz affiche « Quiz en cours de rédaction ».' }),
+      h('p', { class: 'alert alert-warn', text: nb + ' leçons ou fiches disposent d’un quiz rédigé. Les intitulés de leçons viennent des programmes quand ils existent ; les questions, elles, sont auto-rédigées d’après ces intitulés et les fiches de Jàngalekat : aucune n’a été relue par un enseignant. Servez-vous-en pour vous entraîner, pas comme d’un sujet officiel. Une leçon sans quiz affiche « Quiz en cours de rédaction ».' }),
       h('div', { class: 'grille grille-2' }, NIVEAUX.map((n) => {
         const stats = nombreQuiz(n);
         return h('button', {
@@ -118,7 +118,7 @@
           onclick: () => { etat.classe = n; etat.filtreFiche = null; etat.phase = 'lecons'; JK.refresh(); }
         },
           h('h3', { text: n }),
-          h('p', { text: stats.total + ' leçon(s) au programme · quiz rédigés : ' + stats.redis }),
+          h('p', { text: stats.total + ' leçon(s) ou fiche(s) à réviser · quiz rédigés : ' + stats.redis }),
           stats.redis
             ? h('span', { class: 'badge badge-done', text: 'Prêt à réviser' })
             : h('span', { class: 'badge badge-out', text: 'Quiz en cours de rédaction' }));
@@ -152,7 +152,7 @@
           onclick: () => { etat.classe = null; etat.phase = 'classe'; etat.filtreFiche = null; etat.matiere = 'Toutes'; etat.revueAvant = false; JK.refresh(); }
         })),
       h('h1', { text: 'Quiz de la classe de ' + etat.classe }),
-      h('p', { class: 'lede', text: dansFiltre.length + ' leçon(s) au programme de ' + etat.classe + (filtre === 'Toutes' ? '' : ' en ' + filtre) + ' · ' + redis + ' quiz rédigé(s). Chaque quiz ne porte que sur sa leçon.' }),
+      h('p', { class: 'lede', text: dansFiltre.length + ' leçon(s) ou fiche(s) à réviser en ' + etat.classe + (filtre === 'Toutes' ? '' : ' en ' + filtre) + ' · ' + redis + ' quiz rédigé(s). Chaque quiz ne porte que sur sa leçon.' }),
       matieres.length > 1
         ? h('div', { class: 'chips', role: 'group', 'aria-label': 'Filtrer par matière' },
           h('button', {
