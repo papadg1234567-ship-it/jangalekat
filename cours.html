@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cours — Jàngalekat</title>
+<meta name="description" content="Bibliothèque de fiches de révision par matière et par classe, avec mode mémorisation, et listes de leçons du programme officiel de géographie.">
+<link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-app="true" data-view="fiches">
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="barre">
+  <div class="barre-interieur">
+    <a class="marque" href="index.html">
+      <img src="assets/icons/logo.svg" alt="" width="40" height="40">
+      <span class="marque-nom">Jàngalekat</span>
+      <span class="marque-slogan">Apprends. Comprends. Réussis.</span>
+    </a>
+    <nav class="menu" aria-label="Navigation principale">
+      <a class="lien" href="index.html">Accueil</a>
+      <a class="lien est-actif" href="cours.html" aria-current="page">Cours</a>
+      <a class="lien" href="exercices.html">Exercices</a>
+      <a class="lien" href="profil.html">Progression</a>
+      <a class="lien" href="index.html#ressources">Ressources</a>
+    </nav>
+    <a class="btn btn-secondaire barre-action" href="profil.html">Voir ma progression</a>
+  </div>
+</header>
+
+<nav class="onglets" aria-label="Sections de la page Cours">
+  <button type="button" class="nav-btn is-active" data-view="fiches" aria-current="page">
+    <svg class="ico" viewBox="0 0 24 24"><use href="#i-livre"></use></svg>Fiches
+  </button>
+  <button type="button" class="nav-btn" data-view="programmes">
+    <svg class="ico" viewBox="0 0 24 24"><use href="#i-liste"></use></svg>Programmes
+  </button>
+</nav>
+
+<main id="main" class="espace">
+  <p id="live-region" class="sr-only" aria-live="polite"></p>
+  <p id="storage-warning" class="alert alert-warn" hidden>
+    Le stockage local de ce navigateur n'est pas disponible. Vous pouvez tout de même utiliser
+    l'application, mais votre progression sera perdue à la fermeture de la page.
+  </p>
+  <details class="note">
+    <summary>Qualité et provenance du contenu : à lire une fois</summary>
+    <p>Les fiches sont rédigées par le porteur du projet et ne sont pas relues par un enseignant :
+    chaque fiche affiche son statut de vérification. Elles ne remplacent pas un cours officiel.</p>
+    <p>Les intitulés de leçons de la section « Programmes » et des fiches de géographie viennent du programme
+    officiel de géographie du ministère de l’Éducation nationale (édition 2004), reproduit dans le rapport de
+    recherche PURGES / AUF (2020). Les listes d’histoire, d’éducation civique, de mathématiques et de
+    physique-chimie n’ont pas pu être vérifiées à une source officielle publiée ; des programmes officiels de
+    SVT (2008 et 2015) sont en ligne mais ne sont pas encore utilisés ici. La réforme PARC révise
+    actuellement ces curricula.</p>
+  </details>
+
+  <section id="view-fiches" class="view" data-view="fiches" tabindex="-1"></section>
+  <section id="view-programmes" class="view" data-view="programmes" tabindex="-1" hidden></section>
+</main>
+
+<footer class="pied">
+  <div class="pied-interieur">
+    <p class="pied-mention">Jàngalekat — cahier des charges v1.0, phase 1. Données conservées uniquement sur cet appareil.</p>
+    <button type="button" id="reset-data" class="btn btn-ghost">
+      <svg class="ico" viewBox="0 0 24 24"><use href="#i-rafraichir"></use></svg>Effacer ma progression locale
+    </button>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/progression.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/quiz-lecons.js"></script>
+<script src="js/fiches.js"></script>
+
+<script src="js/programmes/geo.js"></script>
+<script src="js/programmes/histoire.js"></script>
+<script src="js/programmes/maths.js"></script>
+<script src="js/programmes/pc.js"></script>
+<script src="js/programmes/svt.js"></script>
+<script src="js/programmes.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/planning.js"></script>
+</body>
+</html>

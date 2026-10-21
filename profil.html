@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progression — Jàngalekat</title>
+<meta name="description" content="Tableau de bord de révision : fiches étudiées, tâches terminées, dernier score, lignes mémorisées et planificateur de révisions.">
+<link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-app="true" data-view="dashboard">
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="barre">
+  <div class="barre-interieur">
+    <a class="marque" href="index.html">
+      <img src="assets/icons/logo.svg" alt="" width="40" height="40">
+      <span class="marque-nom">Jàngalekat</span>
+      <span class="marque-slogan">Apprends. Comprends. Réussis.</span>
+    </a>
+    <nav class="menu" aria-label="Navigation principale">
+      <a class="lien" href="index.html">Accueil</a>
+      <a class="lien" href="cours.html">Cours</a>
+      <a class="lien" href="exercices.html">Exercices</a>
+      <a class="lien est-actif" href="profil.html" aria-current="page">Progression</a>
+      <a class="lien" href="index.html#ressources">Ressources</a>
+    </nav>
+    <a class="btn btn-cta barre-action" href="cours.html">Continuer à apprendre</a>
+  </div>
+</header>
+
+<nav class="onglets" aria-label="Sections de la page Progression">
+  <button type="button" class="nav-btn is-active" data-view="dashboard" aria-current="page">
+    <svg class="ico" viewBox="0 0 24 24"><use href="#i-tableau"></use></svg>Tableau de bord
+  </button>
+  <button type="button" class="nav-btn" data-view="planning">
+    <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendrier"></use></svg>Mes révisions
+  </button>
+</nav>
+
+<main id="main" class="espace">
+  <p id="live-region" class="sr-only" aria-live="polite"></p>
+  <p id="storage-warning" class="alert alert-warn" hidden>
+    Le stockage local de ce navigateur n'est pas disponible. Vous pouvez tout de même utiliser
+    l'application, mais votre progression sera perdue à la fermeture de la page.
+  </p>
+  <p class="note note-court">
+    Cette version n'a ni compte, ni mot de passe, ni espace enseignant : votre nom n'est demandé nulle part.
+    Tout ce qui est enregistré ici reste dans ce navigateur et s'efface avec le bouton du bas de page.
+  </p>
+
+  <section id="view-dashboard" class="view" data-view="dashboard" tabindex="-1"></section>
+  <section id="view-planning" class="view" data-view="planning" tabindex="-1" hidden></section>
+</main>
+
+<footer class="pied">
+  <div class="pied-interieur">
+    <p class="pied-mention">Jàngalekat — cahier des charges v1.0, phase 1. Données conservées uniquement sur cet appareil.</p>
+    <button type="button" id="reset-data" class="btn btn-ghost">
+      <svg class="ico" viewBox="0 0 24 24"><use href="#i-rafraichir"></use></svg>Effacer ma progression locale
+    </button>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/progression.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/quiz-lecons.js"></script>
+<script src="js/fiches.js"></script>
+
+<script src="js/programmes/geo.js"></script>
+<script src="js/programmes/histoire.js"></script>
+<script src="js/programmes/maths.js"></script>
+<script src="js/programmes/pc.js"></script>
+<script src="js/programmes/svt.js"></script>
+<script src="js/programmes.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/planning.js"></script>
+</body>
+</html>

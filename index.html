@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jàngalekat — Apprends. Comprends. Réussis.</title>
+<meta name="description" content="Jàngalekat : révise tes cours du collège et du lycée au Sénégal, entraîne-toi avec des quiz corrigés et suis ta progression. Prototype local, sans connexion Internet.">
+<link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-app="false">
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- A. Barre de navigation --------------------------------------------- -->
+<header class="barre">
+  <div class="barre-interieur">
+    <a class="marque" href="index.html">
+      <img src="assets/icons/logo.svg" alt="" width="40" height="40">
+      <span class="marque-nom">Jàngalekat</span>
+      <span class="marque-slogan">Apprends. Comprends. Réussis.</span>
+    </a>
+    <nav class="menu" aria-label="Navigation principale">
+      <a class="lien est-actif" href="index.html" aria-current="page">Accueil</a>
+      <a class="lien" href="cours.html">Cours</a>
+      <a class="lien" href="exercices.html">Exercices</a>
+      <a class="lien" href="profil.html">Progression</a>
+      <a class="lien" href="#ressources">Ressources</a>
+    </nav>
+    <a class="btn btn-cta barre-action" href="cours.html">Commencer à apprendre</a>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- B. Hero ----------------------------------------------------------- -->
+  <section class="hero">
+    <div class="hero-texte">
+      <p class="hero-drapeau">Prototype local — version 0.11 · aucune inscription, aucune donnée envoyée</p>
+      <h1>Ton avenir commence par un bon apprentissage.</h1>
+      <p class="hero-description">Révise tes cours, entraîne-toi et progresse à ton rythme grâce à Jàngalekat.</p>
+      <div class="hero-actions">
+        <a class="btn btn-cta btn-lg" href="cours.html">Commencer à apprendre</a>
+        <a class="btn btn-secondaire btn-lg" href="profil.html" id="reprendre" hidden>Reprendre</a>
+        <a class="btn btn-secondaire btn-lg" href="#matieres">Découvrir les matières</a>
+      </div>
+      <ul class="hero-compteurs">
+        <li><strong data-compteur="fiches">—</strong><span>fiches de cours</span></li>
+        <li><strong data-compteur="quiz">—</strong><span>quiz, un par leçon</span></li>
+        <li><strong data-compteur="questions">—</strong><span>questions corrigées</span></li>
+        <li><strong data-compteur="lecons">—</strong><span>leçons du programme reliées à une fiche</span></li>
+        <li><strong data-compteur="aRevoir">—</strong><span>leçons à revoir sur cet appareil</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-apercu">
+      <div class="apercu-carte" aria-hidden="true">
+        <p class="apercu-etiquette">Fiche en cours</p>
+        <p class="apercu-titre">Le Sénégal : aspects physiques du milieu</p>
+        <div class="progress progress-apercu"><span></span></div>
+        <p class="apercu-note">Mode mémorisation : des lignes à cacher puis à réciter</p>
+      </div>
+      <div class="apercu-carte apercu-quiz" aria-hidden="true">
+        <p class="apercu-etiquette">Quiz corrigé</p>
+        <p class="apercu-valeur">Question<span> 12 sur 59</span></p>
+        <p class="apercu-note">La bonne réponse et son explication s’affichent après le dépôt</p>
+      </div>
+      <p class="apercu-legende">Aperçu de l’interface — exemple, ce n’est pas votre progression.</p>
+    </div>
+  </section>
+
+  <!-- C. Collège et Lycée ------------------------------------------------ -->
+  <section class="section" id="cycles">
+    <div class="section-tete">
+      <h2>Deux cycles, une même méthode</h2>
+      <p>Choisissez votre niveau : la bibliothèque de fiches se filtre alors sur vos classes.</p>
+    </div>
+    <div class="grille grille-2">
+      <article class="carte carte-niveau">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-livre"></use></svg></span>
+        <h3>Collège</h3>
+        <p class="carte-sous-titre">6ᵉ · 5ᵉ · 4ᵉ · 3ᵉ</p>
+        <p>Fiches courtes, vocabulaire à connaître et quiz de vérification pour chaque classe du cycle moyen.</p>
+        <a class="btn btn-secondaire" href="cours.html?cycle=Coll%C3%A8ge">Fiches du collège</a>
+      </article>
+      <article class="carte carte-niveau">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-liste"></use></svg></span>
+        <h3>Lycée</h3>
+        <p class="carte-sous-titre">Seconde · Première · Terminale</p>
+        <p>Fiches détaillées avec étude guidée, propriétés et entraînement, dont tout le programme de géographie.</p>
+        <a class="btn btn-secondaire" href="cours.html?cycle=Lyc%C3%A9e">Fiches du lycée</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- D. Les matières ---------------------------------------------------- -->
+  <section class="section" id="matieres">
+    <div class="section-tete">
+      <h2>Les matières couvertes</h2>
+      <p>Le nombre affiché est le nombre de fiches réellement ouvertes dans la bibliothèque.</p>
+    </div>
+    <div class="grille grille-4">
+      <article class="carte carte-matiere" data-matiere="Mathématiques">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-maths"></use></svg></span>
+        <h3>Mathématiques</h3>
+        <p>Divisibilité, relatifs, fractions, Pythagore, ensembles de nombres, dérivation, second degré, probabilités.</p>
+        <p class="carte-chiffre"><strong data-compteur="mat-Mathématiques">—</strong> fiches</p>
+        <a class="lien-fiche" href="cours.html?matiere=Math%C3%A9matiques">Ouvrir la matière<span aria-hidden="true"> →</span></a>
+      </article>
+      <article class="carte carte-matiere" data-matiere="Physique-Chimie">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-atome"></use></svg></span>
+        <h3>Physique-Chimie</h3>
+        <p>États de la matière, masse volumique, circuits électriques, combustion, atome, radioactivité.</p>
+        <p class="carte-chiffre"><strong data-compteur="mat-Physique-Chimie">—</strong> fiches</p>
+        <a class="lien-fiche" href="cours.html?matiere=Physique-Chimie">Ouvrir la matière<span aria-hidden="true"> →</span></a>
+      </article>
+      <article class="carte carte-matiere" data-matiere="SVT">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-feuille"></use></svg></span>
+        <h3>SVT</h3>
+        <p>Cellule, photosynthèse, reproduction des plantes, hérédité, constituants du vivant.</p>
+        <p class="carte-chiffre"><strong data-compteur="mat-SVT">—</strong> fiches</p>
+        <a class="lien-fiche" href="cours.html?matiere=SVT">Ouvrir la matière<span aria-hidden="true"> →</span></a>
+      </article>
+      <article class="carte carte-matiere" data-matiere="Histoire-Géo">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-globe"></use></svg></span>
+        <h3>Histoire-géographie</h3>
+        <p>Géographie complète de la 6ᵉ à la Terminale, d’après le programme officiel de 2004 ; en histoire, 56 leçons de repères de la 6ᵉ à la Terminale, avec leur quiz — la liste n’est pas celle d’un arrêté, à confirmer avec le professeur.</p>
+        <p class="carte-chiffre"><strong data-compteur="mat-Histoire-Géo">—</strong> fiches</p>
+        <a class="lien-fiche" href="cours.html?matiere=Histoire-G%C3%A9o">Ouvrir la matière<span aria-hidden="true"> →</span></a>
+      </article>
+    </div>
+    <p class="section-note">L’anglais, la technologie et les sciences économiques et sociales ne sont pas encore ouverts : mieux vaut peu de matières fiables que beaucoup de pages vides.</p>
+  </section>
+
+  <!-- E. Avantages ------------------------------------------------------- -->
+  <section class="section section-claire" id="avantages">
+    <div class="section-tete">
+      <h2>Pourquoi Jàngalekat</h2>
+      <p>Une plateforme pensée pour un téléphone, un forfait limité et une classe sans connexion.</p>
+    </div>
+    <div class="grille grille-avantages">
+      <article class="carte avantage">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-horsligne"></use></svg></span>
+        <h3>Sans connexion</h3>
+        <p>Le site s’ouvre depuis le dossier, sur l’ordinateur de la maison comme sur le téléphone. Rien ne passe par Internet.</p>
+      </article>
+      <article class="carte avantage">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-telephone"></use></svg></span>
+        <h3>Sur téléphone</h3>
+        <p>Boutons assez hauts pour le pouce, textes lisibles sans zoom, mise en page qui s’adapte de 360 à 1440 px.</p>
+      </article>
+      <article class="carte avantage">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-cadenas"></use></svg></span>
+        <h3>Vos données restent chez vous</h3>
+        <p>Aucun compte, aucun mot de passe, aucun serveur. La progression est enregistrée dans ce navigateur et s’efface en un clic.</p>
+      </article>
+      <article class="carte avantage">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-accessible"></use></svg></span>
+        <h3>Lisible par tous</h3>
+        <p>Contrastes vérifiés, navigation au clavier, libellés explicites, annonces pour les lecteurs d’écran.</p>
+      </article>
+      <article class="carte avantage">
+        <span class="picto"><svg class="ico" viewBox="0 0 24 24"><use href="#i-cible"></use></svg></span>
+        <h3>Apprendre vraiment</h3>
+        <p>Chaque fiche se termine par des questions corrigées et propose un mode mémorisation où vous vous évaluez vous-même.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Ressources et provenance ------------------------------------------ -->
+  <section class="section" id="ressources">
+    <div class="section-tete">
+      <h2>Ressources et sources</h2>
+      <p>Où regarder avant de faire confiance à une fiche.</p>
+    </div>
+    <div class="grille grille-2">
+      <article class="carte ressource">
+        <h3><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-liste"></use></svg>Listes de leçons</h3>
+        <p>Cinq matières sont listées dans la section Programmes, chacune avec le statut affiché sous sa liste : géographie
+        (programme officiel du ministère de l’Éducation nationale, édition 2004, reproduit dans le rapport de recherche
+        PURGES / AUF de 2020), SVT (programmes officiels de 2008 et 2015), mathématiques (programmes APAMS de 2006 et
+        guide d’usage DEMSG de 2012), physique-chimie (fascicules ADEM, de la 4ᵉ à la Terminale), histoire (56 repères sans source officielle
+        jointe). Les questions de quiz, elles, sont auto-rédigées d’après ces listes et les fiches.</p>
+        <a class="btn btn-secondaire" href="cours.html#programmes">Voir les programmes</a>
+      </article>
+      <article class="carte ressource">
+        <h3><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-info"></use></svg>Ce qui reste à faire</h3>
+        <ul>
+          <li>Les rédactions de fiches et les questions de quiz sont <strong>à vérifier par un enseignant</strong> : elles ne
+          remplacent pas un cours officiel.</li>
+          <li>Aucun arrêté publié que nous ayons pu ouvrir ne liste les leçons d’histoire : les 56 repères affichés sont une
+          progression interne, à confirmer avec le professeur.</li>
+          <li>La physique-chimie n’est pas déclarée en 6ᵉ et en 5ᵉ : les documents institutionnels consultés ne sommaient que
+          la 4ᵉ et la 3ᵉ, et nous préférons une matière incomplète à une liste inventée.</li>
+          <li>La réforme PARC est en cours : un libellé de 2004 peut ne plus être celui du manuel utilisé cette année.</li>
+        </ul>
+      </article>
+    </div>
+    <p class="section-note">Pas encore disponible dans ce prototype : comptes élèves ou enseignants, synchronisation entre
+    appareils, application installable hors connexion et publication en ligne. Ces fonctions sont prévues plus tard, après les
+    tests avec des élèves, et ne sont pas présentées comme acquises.</p>
+  </section>
+
+</main>
+
+<!-- F. Pied de page ------------------------------------------------------ -->
+<footer class="pied">
+  <div class="pied-interieur">
+    <div class="pied-marque">
+      <img src="assets/icons/logo.svg" alt="" width="36" height="36">
+      <div>
+        <p class="marque-nom">Jàngalekat</p>
+        <p class="marque-slogan">Apprends. Comprends. Réussis.</p>
+      </div>
+    </div>
+    <nav class="pied-liens" aria-label="Navigation de pied de page">
+      <a href="cours.html">Cours</a>
+      <a href="exercices.html">Exercices</a>
+      <a href="profil.html">Progression</a>
+      <a href="#ressources">Ressources</a>
+    </nav>
+    <p class="pied-mention">Prototype local de la phase 1 — cahier des charges v1.0. Fonctionne sans serveur, sans
+    bibliothèque externe et sans connexion. Contenu non relu par un enseignant.</p>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/progression.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/quiz-lecons.js"></script>
+<script src="js/fiches.js"></script>
+
+<script src="js/programmes/geo.js"></script>
+<script src="js/programmes/histoire.js"></script>
+<script src="js/programmes/maths.js"></script>
+<script src="js/programmes/pc.js"></script>
+<script src="js/programmes/svt.js"></script>
+<script src="js/programmes.js"></script>
+<script src="js/quiz/geo-3e.js"></script>
+<script src="js/quiz/geo-4e-1.js"></script>
+<script src="js/quiz/geo-4e-2.js"></script>
+<script src="js/quiz/geo-5e-1.js"></script>
+<script src="js/quiz/geo-5e-2.js"></script>
+<script src="js/quiz/geo-5e-3.js"></script>
+<script src="js/quiz/geo-5e-4.js"></script>
+<script src="js/quiz/geo-6e.js"></script>
+<script src="js/quiz/geo-premiere-1.js"></script>
+<script src="js/quiz/geo-premiere-2.js"></script>
+<script src="js/quiz/geo-seconde-1.js"></script>
+<script src="js/quiz/geo-seconde-2.js"></script>
+<script src="js/quiz/geo-terminale-1.js"></script>
+<script src="js/quiz/geo-terminale-2.js"></script>
+<script src="js/quiz/herites.js"></script>
+<script src="js/quiz/histoire-3e.js"></script>
+<script src="js/quiz/histoire-4e.js"></script>
+<script src="js/quiz/histoire-5e.js"></script>
+<script src="js/quiz/histoire-6e.js"></script>
+<script src="js/quiz/histoire-premiere.js"></script>
+<script src="js/quiz/histoire-seconde.js"></script>
+<script src="js/quiz/histoire-terminale.js"></script>
+<script src="js/quiz/maths-3e.js"></script>
+<script src="js/quiz/maths-4e.js"></script>
+<script src="js/quiz/maths-5e.js"></script>
+<script src="js/quiz/maths-6e-1.js"></script>
+<script src="js/quiz/maths-6e-2.js"></script>
+<script src="js/quiz/maths-premiere-1.js"></script>
+<script src="js/quiz/maths-premiere-2.js"></script>
+<script src="js/quiz/maths-premiere-3.js"></script>
+<script src="js/quiz/maths-seconde-1.js"></script>
+<script src="js/quiz/maths-seconde-2.js"></script>
+<script src="js/quiz/maths-terminale.js"></script>
+<script src="js/quiz/pc-3e.js"></script>
+<script src="js/quiz/pc-4e.js"></script>
+<script src="js/quiz/pc-premiere-1.js"></script>
+<script src="js/quiz/pc-premiere-2.js"></script>
+<script src="js/quiz/pc-seconde-1.js"></script>
+<script src="js/quiz/pc-seconde-2.js"></script>
+<script src="js/quiz/pc-terminale-1.js"></script>
+<script src="js/quiz/pc-terminale-2.js"></script>
+<script src="js/quiz/pc-terminale-3.js"></script>
+<script src="js/quiz/sciences-maths-pc.js"></script>
+<script src="js/quiz/sciences-svt-histoire.js"></script>
+<script src="js/quiz/svt-3e.js"></script>
+<script src="js/quiz/svt-4e.js"></script>
+<script src="js/quiz/svt-5e.js"></script>
+<script src="js/quiz/svt-6e.js"></script>
+<script src="js/quiz/svt-premiere-1.js"></script>
+<script src="js/quiz/svt-premiere-2.js"></script>
+<script src="js/quiz/svt-seconde.js"></script>
+<script src="js/quiz/svt-terminale-1.js"></script>
+<script src="js/quiz/svt-terminale-2.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>
