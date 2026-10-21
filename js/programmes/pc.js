@@ -19,7 +19,10 @@
      les chiffres reproduisent les totaux imprimés par classe ;
    - série scientifique seule (S, S1, S2) : les variantes L2, présentes dans le même fascicule,
      sont exclues ;
-   - les 6ᵉ et 5ᵉ sont absentes du registre : aucun document trouvé ne donne leur liste de leçons.
+   - les titres supplémentaires de révision sont rédigés par Jàngalekat et séparés des chapitres
+     relevés dans le fascicule ; ils ne sont pas présentés comme des leçons prescrites ;
+   - les parcours de 6ᵉ et de 5ᵉ sont des compléments de découverte, faute de liste de programme
+     de ces niveaux trouvée dans les documents consultés.
 */
 (function () {
   'use strict';
@@ -45,12 +48,54 @@
         consulteLe: '2026-10-18'
       }
     ],
-    SOURCE: 'Titres et ordres recopiés des copies dactylographiées des « Programmes de sciences physiques » du Sénégal datées d’août 2008 : cycle moyen (4ᵉ et 3ᵉ), puis classes de Seconde S, de Première S1-S2 et de Terminale S1-S2. Ces copies n’affichent ni ministère, ni IGEN, ni Commission des programmes : la page de garde manque et la pagination imprimée suit un fil continu de la page 20 à la page 228, signe d’un extrait de fascicule plus vaste. Le statut retenu est donc celui d’un fascicule pédagogique, et le mot « officiel » n’est pas employé ici. La notice du dépôt numérique qui publie le tome 1 l’attribue au ministère sénégalais de l’Éducation, mais cette attribution vient du catalogue et non d’une page imprimée dans l’extrait. Les chapitres de 4ᵉ et de 3ᵉ ont été recoupés avec les fascicules ADEM-Dakar de sciences physiques (Ministère de l’Éducation nationale, Inspection d’académie de Dakar, Agence Française de Développement, v10.17), qui reprennent les mêmes titres dans le même ordre. Aucune liste de leçons accessible n’a été trouvée pour les classes de 6ᵉ et de 5ᵉ : ces deux niveaux restent hors du registre, sans leçon ni quiz. Les quiz rattachés à ces lignes sont des contenus auto-rédigés par le projet, non relus par un enseignant.',
+    SOURCE: 'Titres et ordres des chapitres principaux recopiés des copies dactylographiées des « Programmes de sciences physiques » du Sénégal datées d’août 2008 : cycle moyen (4ᵉ et 3ᵉ), puis classes de Seconde S, de Première S1-S2 et de Terminale S1-S2. Ces copies n’affichent ni ministère, ni IGEN, ni Commission des programmes : la page de garde manque et la pagination imprimée suit un fil continu de la page 20 à la page 228, signe d’un extrait de fascicule plus vaste. Le statut retenu est donc celui d’un fascicule pédagogique, et le mot « officiel » n’est pas employé ici. La notice du dépôt numérique qui publie le tome 1 l’attribue au ministère sénégalais de l’Éducation, mais cette attribution vient du catalogue et non d’une page imprimée dans l’extrait. Les chapitres de 4ᵉ et de 3ᵉ ont été recoupés avec les fascicules ADEM-Dakar de sciences physiques (Ministère de l’Éducation nationale, Inspection d’académie de Dakar, Agence Française de Développement, v10.17), qui reprennent les mêmes titres dans le même ordre. Les leçons des chapitres complémentaires de 4ᵉ à Terminale et les parcours de découverte de 6ᵉ et 5ᵉ sont rédigés par Jàngalekat pour enrichir les révisions ; ils ne viennent pas d’une liste officielle et ne sont pas relus par un enseignant. Aucune liste de programme vérifiable de 6ᵉ ou de 5ᵉ n’a été retrouvée.',
     CLASSES: [
+      {
+        niveau: '6ᵉ',
+        titre: 'Compléments de découverte en sciences physiques, rédigés par Jàngalekat',
+        nbLecons: '8 leçons complémentaires',
+        note: 'Aucune liste de leçons de physique-chimie de 6ᵉ n’a été retrouvée dans les documents consultés. Ces huit leçons de découverte sont rédigées par Jàngalekat, hors programme vérifié ; elles n’ont ni horaire officiel ni statut de liste ministérielle.',
+        chapitres: [
+          {
+            nom: 'Parcours de découverte Jàngalekat — contenu complémentaire, hors liste de programme vérifiée',
+            lecons: [
+              lecon('Découvrir la matière et ses trois états'),
+              lecon('Mesurer une longueur, une masse et un volume'),
+              lecon('Mélanges et méthodes simples de séparation'),
+              lecon('L’eau : états et changements d’état'),
+              lecon('L’air : un mélange de gaz qui occupe un volume'),
+              lecon('Construire et schématiser un circuit électrique simple'),
+              lecon('Sources de lumière, ombres et objets éclairés'),
+              lecon('Décrire un mouvement et mesurer une durée')
+            ]
+          }
+        ]
+      },
+      {
+        niveau: '5ᵉ',
+        titre: 'Compléments de découverte en sciences physiques, rédigés par Jàngalekat',
+        nbLecons: '8 leçons complémentaires',
+        note: 'Aucune liste de leçons de physique-chimie de 5ᵉ n’a été retrouvée dans les documents consultés. Ces huit leçons de découverte sont rédigées par Jàngalekat, hors programme vérifié ; elles n’ont ni horaire officiel ni statut de liste ministérielle.',
+        chapitres: [
+          {
+            nom: 'Parcours de découverte Jàngalekat — contenu complémentaire, hors liste de programme vérifiée',
+            lecons: [
+              lecon('Masse, volume et masse volumique'),
+              lecon('Dissolution, soluté et solution aqueuse'),
+              lecon('Transformations physiques et transformations chimiques'),
+              lecon('Circuits en série et en dérivation'),
+              lecon('Intensité du courant et sécurité des mesures'),
+              lecon('Réflexion de la lumière sur un miroir plan'),
+              lecon('Trajectoire, durée et vitesse moyenne'),
+              lecon('Température, thermomètre et transferts thermiques')
+            ]
+          }
+        ]
+      },
       {
         niveau: '4ᵉ',
         titre: 'Programme de physique et de chimie de la classe de quatrième',
-        nbLecons: '12 chapitres · 48 h (2 h / élève)',
+        nbLecons: '12 chapitres + 4 compléments · 48 h (2 h / élève)',
         note: 'Deux parties, physique puis chimie, chacune précédée d’un tableau de sommaire donnant l’horaire de chaque chapitre : totaux imprimés 30 h de physique et 18 h de chimie, pour 2 h par élève. Les titres du tableau et ceux des relevés de chapitre coïncident, et le fascicule ADEM-Dakar de 4ᵉ reprend les mêmes douze chapitres dans le même ordre.',
         chapitres: [
           {
@@ -74,13 +119,22 @@
               lecon('Chapitre C3 — Mole et grandeurs molaires (3 h)'),
               lecon('Chapitre C4 — Réaction chimique (6 h)')
             ]
+          },
+          {
+            nom: 'Compléments de révision Jàngalekat — hors relevé du fascicule',
+            lecons: [
+              lecon('Conversions d’unités et ordre de grandeur'),
+              lecon('Masse volumique : mesurer, calculer et comparer'),
+              lecon('Mesurer une intensité et une tension dans un circuit'),
+              lecon('Séparer les constituants d’un mélange')
+            ]
           }
         ]
       },
       {
         niveau: '3ᵉ',
         titre: 'Programme de physique et de chimie de la classe de troisième',
-        nbLecons: '11 chapitres · 42 h (2 h / élève)',
+        nbLecons: '11 chapitres + 4 compléments · 42 h (2 h / élève)',
         note: 'Même présentation : 24 h de physique, 18 h de chimie, 2 h par élève. Trois titres diffèrent entre le tableau du sommaire et le relevé du chapitre (« Énergie et rendement » d’un côté, « Transformations d’énergies » de l’autre ; « Notion de solution » / « Solutions aqueuses » ; « Quelques propriétés chimiques des métaux » / « Propriétés chimiques des métaux usuels ») : la forme du relevé de chapitre est retenue, car le fascicule ADEM-Dakar de 3ᵉ la confirme. Pour la dispersion de la lumière, le tableau donne 2 h, chiffre qui fait le total imprimé de 24 h, alors que le relevé du chapitre porte « Durée : 1 heure ».',
         chapitres: [
           {
@@ -103,13 +157,22 @@
               lecon('Chapitre C3 — Propriétés chimiques des métaux usuels (4 h)'),
               lecon('Chapitre C4 — Les hydrocarbures (4 h)')
             ]
+          },
+          {
+            nom: 'Compléments de révision Jàngalekat — hors relevé du fascicule',
+            lecons: [
+              lecon('Construire l’image d’un objet par une lentille convergente'),
+              lecon('Loi d’Ohm : tension, intensité et résistance'),
+              lecon('pH : comparer des solutions acides et basiques'),
+              lecon('Énergie électrique : puissance et consommation')
+            ]
           }
         ]
       },
       {
         niveau: 'Seconde',
         titre: 'Programme de sciences physiques des classes de Seconde S',
-        nbLecons: '25 chapitres · 120 h (5 h / élève)',
+        nbLecons: '25 chapitres + 4 compléments · 120 h (5 h / élève)',
         note: 'Le sommaire groupe les quinze chapitres de physique en trois domaines (électricité et électronique, mécanique, optique) et les dix chapitres de chimie sans subdivision ; totaux imprimés 72 h et 48 h pour 5 h par élève. Les durées du tableau et celles des relevés de chapitre concordent. La variante de la série L2, plus allégée, est exclue.',
         chapitres: [
           {
@@ -146,13 +209,22 @@
               lecon('Chapitre C9 — Notion de pH, indicateurs colorés (6 h)'),
               lecon('Chapitre C10 — Caractérisation de quelques ions (3 h)')
             ]
+          },
+          {
+            nom: 'Compléments de révision Jàngalekat — hors relevé du fascicule',
+            lecons: [
+              lecon('Vecteur vitesse et lecture d’un graphique de mouvement'),
+              lecon('Bilan des forces et principe d’inertie : premiers repères'),
+              lecon('Concentration massique d’une solution'),
+              lecon('Équilibrer une équation de réaction simple')
+            ]
           }
         ]
       },
       {
         niveau: 'Première',
         titre: 'Programme de sciences physiques des classes de Première S1 et S2',
-        nbLecons: '23 chapitres · 116 h',
+        nbLecons: '23 chapitres + 4 compléments · 116 h',
         note: 'Le document ne précise pas l’horaire hebdomadaire. Totaux imprimés : 62 h de physique, réparties en quatre domaines (énergie-champs, électronique, phénomènes vibratoires et propagation, optique), et 54 h de chimie (chimie organique, électrochimie). Le chapitre C12, traité en exposés et visites, n’apparaît que dans le tableau du sommaire, sans relevé de chapitre développé dans le document.',
         chapitres: [
           {
@@ -187,13 +259,22 @@
               lecon('Chapitre C11 — Oxydoréduction par voie sèche (4 h)'),
               lecon('Chapitre C12 — Thèmes : phosphates, engrais, matières plastiques, exposés et visites (2 h)')
             ]
+          },
+          {
+            nom: 'Compléments de révision Jàngalekat — hors relevé du fascicule',
+            lecons: [
+              lecon('Deuxième loi de Newton et mouvement rectiligne'),
+              lecon('Énergie mécanique : conservation et variations'),
+              lecon('Ondes mécaniques : période, fréquence et longueur d’onde'),
+              lecon('Oxydoréduction : identifier oxydant et réducteur')
+            ]
           }
         ]
       },
       {
         niveau: 'Terminale',
         titre: 'Programmes de sciences physiques des classes de Terminales S1 et S2',
-        nbLecons: '24 chapitres · 143 h (7 h / élève)',
+        nbLecons: '24 chapitres + 4 compléments · 143 h (7 h / élève)',
         note: 'Totaux imprimés : 90 h de physique, groupées en mécanique et dynamique, électromagnétisme, oscillations et optique, phénomènes corpusculaires, puis 53 h de chimie (chimie organique, puis acides et bases). Quatre durées diffèrent entre le tableau du sommaire et le relevé de chapitre : P2 « 4 h » contre « 4 + 1 = 5 », P9 4 h contre 5 h, P10 8 h contre 9 h, P15 6 h contre 8 h. La colonne du tableau est retenue, car elle est la seule à reproduire le total imprimé de 90 h.',
         chapitres: [
           {
@@ -228,6 +309,15 @@
               lecon('Chapitre C7 — Acides et bases faibles, couples acide-base, constante d’acidité et classification des couples acide-base (8 h)'),
               lecon('Chapitre C8 — Réaction acide faible / base forte et réciproque, effet tampon, dosage (7 h)'),
               lecon('Chapitre C9 — Acides aminés, éléments de stéréochimie (5 h)')
+            ]
+          },
+          {
+            nom: 'Compléments de révision Jàngalekat — hors relevé du fascicule',
+            lecons: [
+              lecon('Mouvement d’un projectile dans un champ de pesanteur'),
+              lecon('Induction électromagnétique : flux et loi de Faraday'),
+              lecon('Désintégration radioactive et décroissance exponentielle'),
+              lecon('Dosage acido-basique : équivalence et exploitation')
             ]
           }
         ]
