@@ -171,11 +171,19 @@
   });
   PAGES_TOUTES.forEach((page) => {
     const html = fs.readFileSync(path.join(racine, page), 'utf8');
-    const positionEcran = html.indexOf('<script src="js/programmes.js">');
+    const balises = [...html.matchAll(/<script src="([^"]+)">/g)].map((match) => ({
+      src: match[1].split(/[?#]/, 1)[0],
+      index: match.index
+    }));
+    const positionDe = (src) => {
+      const balise = balises.find((x) => x.src === src);
+      return balise ? balise.index : -1;
+    };
+    const positionEcran = positionDe('js/programmes.js');
     if (positionEcran < 0) { problemes.push(page + ' : js/programmes.js n’est pas chargé'); return; }
     fichiersProgrammes.forEach((n) => {
       const marque = 'js/programmes/' + n;
-      const position = html.indexOf('<script src="' + marque + '">');
+      const position = positionDe(marque);
       if (position < 0) problemes.push(page + ' : balise <script> manquante pour ' + marque);
       else if (position > positionEcran) problemes.push(page + ' : ' + marque + ' doit être chargé AVANT js/programmes.js');
     });
